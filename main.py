@@ -1,2 +1,3 @@
-a = True
-print(not a)
+def say_hello():
+  print("hello how r u?")
+say_hello()
