@@ -1,3 +1,3 @@
-def say_hello():
-  print("hello how r u?")
-say_hello()
+def say_hello(name):
+  print(f"hello {name} how r u?")
+say_hello("junil")
