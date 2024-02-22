@@ -1,21 +1,10 @@
-def say_hello(name,age,you):
-  print(f"hello {name} and {age} years old how r u?",you)
-say_hello("junil",34,"arum")
+from random import randint
+user_choise = int(input("Enter a number: "))
+pc_choise = randint(1,50)
 
-a = 2
-b = 3
-c = a + b
-a = 1
-b = 10
-print(c)
-
-my_name = "junil"
-print(my_name)
-
-a = "12"
-b = "34"
-c = a + b
-print(c)
-
-d = True
-print(d)
+if user_choise == pc_choise:
+  print("You won!")
+elif user_choise > pc_choise:
+  print("Lower! Computer Chosen", pc_choise)
+elif user_choise < pc_choise:
+  print("Higher! Computer Chosen", pc_choise)
