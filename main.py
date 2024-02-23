@@ -8,6 +8,12 @@ response = requests.get(url)
 #print(response.content)
 
 soup = BeautifulSoup(response.content, "html.parser",)
-jobs = soup.find("section", class_="jobs").find_all("li")
+jobs = soup.find("section", class_="jobs").find_all("li")[1:-1]
 
-print(jobs)
+for job in jobs:
+  title = job.find("span", class_="title").text
+  company, position, region = job.find_all("span", class_="company")
+  conpany = company.text
+  position = position.text
+  region = region.text
+  print(title,  conpany, position, region, "----\n")
