@@ -1,29 +1,13 @@
-class Puppy:
+import requests 
+from bs4 import BeautifulSoup
 
-  def __init__(self, name, color):
-    self.name = name
-    self.age = 0.1
-    self.color = color
+url = "https://weworkremotely.com/categories/remote-full-stack-programming-jobs#job-listings"
 
-  def __str__(self):
-    return f"Puppy name: {self.name}, age: {self.age}, color: {self.color}"
+response = requests.get(url)
 
-  def woof_woof(self):
-    print(f"{self.name} woof woof!")
+#print(response.content)
 
-  def introduce(self):
-    self.woof_woof()
-    print(f"Hi, my name is {self.name} and I'm a {self.color} puppy.")
+soup = BeautifulSoup(response.content, "html.parser",)
+jobs = soup.find("section", class_="jobs").find_all("li")
 
-ruffus = Puppy(
-  name="Ruffus", 
-  color="brown",
-)
-bibi = Puppy(
-  name="Bibi", 
-  color="white",
-)
-
-print(ruffus, bibi)
-ruffus.introduce()
-bibi.introduce()
+print(jobs)
