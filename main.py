@@ -67,3 +67,8 @@ for job in jobs:
 print(jobs_db)
 #확인을 위해 jobs_db 개수를 console에 보여준다.
 print(len(jobs_db))
+file = open("jobs.csv", "w", encoding="utf-8", newline = "")
+writter = csv.writer(file)
+writter.writerow(["Title","Company","Reward","Link"])
+for job in jobs_db:
+    writter.writerow(job.values())
