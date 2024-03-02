@@ -67,8 +67,15 @@ for job in jobs:
 print(jobs_db)
 #확인을 위해 jobs_db 개수를 console에 보여준다.
 print(len(jobs_db))
+#csv 파일을 만든다, 인코딩 utf-8을 해야 vs code에서 한글이 보인다(다만 엑셀에선 한글깨짐), newline=""을 해야 줄 넘김이 없음.
 file = open("jobs.csv", "w", encoding="utf-8", newline = "")
+#csv파일에 데이터를 넣기 위해 writter 변수에 추가
 writter = csv.writer(file)
+#header 부분 작성
 writter.writerow(["Title","Company","Reward","Link"])
+#jobs 리스트를 반복문을 돌려 CSV에 한줄씩 추가
 for job in jobs_db:
+    #딕셔너리에서 데이터만 가져다가 list로 만들어서(job.values()) csv에 한줄씩 추가
     writter.writerow(job.values())
+#메모리 누수 방지를 위해 파일 닫기
+file.close()
