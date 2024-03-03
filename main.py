@@ -8,9 +8,9 @@ app = Flask("JobScrapper")
 @app.route("/")
 #루트 함수
 def home():
-  #루트 함수 반환
+  #루트 함수 반환(화면에 보여줄 부분)
   return 'hey there!'
-#루트 함수 실행
+#ip 주소를 0.0.0.0으로 설정(리플릿이라서 해야하는 설정)
 app.run("0.0.0.0")
 
 # keyword = input("What do you want to search for?")
