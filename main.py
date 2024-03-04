@@ -11,9 +11,9 @@ def home():
   #루트 함수 반환(화면에 보여줄 부분)
   return render_template("home.html",name="junil")
 
-@app.route("/hello")
+@app.route("/search")
 def hello():
-  return 'hello you!'
+  return render_template("search.html")
 #ip 주소를 0.0.0.0으로 설정(리플릿이라서 해야하는 설정)
 app.run("0.0.0.0")
 
