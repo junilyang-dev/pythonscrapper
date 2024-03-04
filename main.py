@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from extractors.indeed import extract_indeed_jobs
 from extractors.wwr import extract_wwr_jobs
 from file import save_to_file
@@ -9,7 +9,11 @@ app = Flask("JobScrapper")
 #루트 함수
 def home():
   #루트 함수 반환(화면에 보여줄 부분)
-  return 'hey there!'
+  return render_template("home.html",name="junil")
+
+@app.route("/hello")
+def hello():
+  return 'hello you!'
 #ip 주소를 0.0.0.0으로 설정(리플릿이라서 해야하는 설정)
 app.run("0.0.0.0")
 
